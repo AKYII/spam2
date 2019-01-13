@@ -1,52 +1,88 @@
-const settings = require("./config.json"); 
-const Discord = require('discord.js');
-const initcmd = settings.initcmd;
-const id = settings.id;
+const Discord = require("discord.js");
 const client = new Discord.Client();
+const client2 = new Discord.Client();
 
 client.on('ready', () => {
-  console.log(`Hi ${client.user.tag} , This Code by : Kahrbaa `);
-  console.log('')
-  console.log(`i Have  [ " ${client.guilds.size} " ]`);
+   console.log(`----------------`);
+   console.log(`Credit Farmm - Script By : Kahrbaa `);
+   console.log(`----------------`);
+   console.log(`Loadinng`);
+   console.log(`Loadinng.`);
+   console.log(`Loadinng..`);
+   console.log(`Loadinng...`);
+   console.log(`This Bots Online ' `);
+   console.log(`----------------`);
 });
 
-const developers = id
-const adminprefix = initcmd;
+
 client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!developers.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'ply')) {
-    client.user.setGame(argresult);
-      message.channel.send("**:white_check_mark: | The Playing Status Has Been Changed To : ``"
-   + `${argresult}` + "``**")
-  } else 
-  if (message.content.startsWith(adminprefix + 'wat')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send("**:white_check_mark: | The Watching Status Has Been Changed To : ``"
-   + `${argresult}` + "``**")
-  } else 
-  if (message.content.startsWith(adminprefix + 'lis')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send("**:white_check_mark: | The Listening Status Has Been Changed To : ``"
-   + `${argresult}` + "``**")
-  } else 
-  if (message.content.startsWith(adminprefix + 'st')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/i_kahrba999");
-      message.channel.send("**:white_check_mark: | The Streaming Status Has Been Changed To : ``"
-   + `${argresult}` + "``**")
-  }
-  if (message.content.startsWith(adminprefix + 'setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.send(`Changing The Name To ..**${argresult}** `)
-} else
-if (message.content.startsWith(adminprefix + 'setavatar')) {
-  client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);
-}
+    if(message.content === '-راتب'){
+        message.channel.send('#daily')
+    }
+});
+
+client.on('message', message => {
+    if(message.content === '-مبلغ'){
+        message.channel.send('#credits')
+    }
+});
+
+client.on('message', message => {
+    if(message.content === '-ريب'){
+        message.channel.send('#credits')
+    }
+});
+
+client2.on('message', message => {
+    if(message.content === '-راتب'){
+        message.channel.send('#daily')
+    }
+});
+
+client2.on('message', message => {
+    if(message.content === '-مبلغ'){
+        message.channel.send('#credits')
+    }
+});
+
+client2.on('message', message => {
+    if(message.content === '-ريب'){
+        message.channel.send('#credits')
+    }
+});
+
+
+
+client.on('message', message => { // لا تغير شئ عشان ما تخرب الدنيا
+if (message.content === '!spam') {
+      let count = 0;
+      let ecount = 0;
+      for(let x = 0; x < 90000; x++) {
+        message.channel.send(`**Credit Spam , Frame , Credit By Kahrba , Farm Credit By Kahrba, ez Farm - كردت اسبام اسبام اسبام اوف ءف اح اح نار ج **[ " ${x} " ]`)
+          .then(m => {
+            count++;
+          })
+          
+        }
+      }
+});
+
+client2.on('message', message => { // لا تغير شئ عشان ما تخرب الدنيا
+if (message.content === '!spam') {
+      let count = 0;
+      let ecount = 0;
+      for(let x = 0; x < 90000; x++) {
+        message.channel.send(`**Credit Spam , Frame , Credit By Kahrba , Farm Credit By Kahrba, ez Farm - كردت اسبام اسبام اسبام اوف ءف اح اح نار ج **[ " ${x} " ]`)
+          .then(m => {
+            count++;
+          })
+          
+        }
+      }
 });
 
 
 
 
-client.login(settings.token);
+client.login(process.env.TOKEN);// لا تغير فيها شيء
+client2.login(process.env.TOKEN2);// لا تغير فيها شيء
